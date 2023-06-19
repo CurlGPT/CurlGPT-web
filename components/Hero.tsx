@@ -56,12 +56,12 @@ const Hero: FC<HeroProps> = ({}) => {
                         Install
                     </a>
                 </div>
-                <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
+                <div className="px-4 mx-auto text-center max-w-screen-sm md:max-w-screen-md lg:max-w-screen-xl lg:px-36">
                     <Image
-                        src="https://how2terminal.com/static/img/rename4.png"
-                        height="442"
+                        src={"/terminal1.png"}
+                        height="791"
                         alt="CurlGPT"
-                        width="963"
+                        width="1934"
                     />
                 </div>
             </div>
