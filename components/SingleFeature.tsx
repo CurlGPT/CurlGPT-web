@@ -20,7 +20,7 @@ const SingleFeature: FC<SingleFeatureProps> = ({ feature }) => {
                     viewBox="0 0 24 24"
                     fill="currentColor"
                 >
-                    <path fill-rule="evenodd" d={svg} clip-rule="evenodd" />
+                    <path fillRule="evenodd" d={svg} clipRule="evenodd" />
                 </svg>
             </div>
             <h3 className="mb-2 text-xl font-bold dark:text-white">{title}</h3>
