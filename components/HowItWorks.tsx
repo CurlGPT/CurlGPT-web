@@ -33,7 +33,7 @@ const HowItWorks: FC<HowItWorksProps> = ({}) => {
                         CurlGPT&apos;s intelligent AI-driven process.
                     </p>
                 </div>
-                <div className="grid gap-8 lg:grid-cols-3 mx-10 justify-center">
+                <div className="grid gap-8 justify-items-center lg:grid-cols-3 mx-10 justify-center">
                     {steps.map((step) => (
                         <Step key={step.key} step={step} />
                     ))}
