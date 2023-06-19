@@ -34,7 +34,7 @@ const Stats: FC<StatsProps> = ({}) => {
                     </p>
                 </div>
                 <div className="bg-white dark:bg-gray-900">
-                    <div className="max-w-xs sm:max-w-screen-xl px-4 py-8 mx-auto text-center">
+                    <div className="max-w-xs sm:max-w-screen-xl px-4 pt-8 mx-auto text-center">
                         <dl className="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white">
                             {stats.map((stat) => (
                                 <Numbers key={stat.key} stat={stat} />

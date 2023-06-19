@@ -1,8 +1,25 @@
 import Image from "next/image";
 import { FC } from "react";
+import Step from "./Step";
 
 interface HowItWorksProps {}
-
+const steps = [
+    {
+        key: 1,
+        imageLink: "/signin.jpg",
+        title: "Sign In and get the API Key",
+    },
+    {
+        key: 2,
+        imageLink: "/install.jpg",
+        title: "Install the CLI Tool",
+    },
+    {
+        key: 3,
+        imageLink: "/prompt.jpg",
+        title: "Enter the prompt",
+    },
+];
 const HowItWorks: FC<HowItWorksProps> = ({}) => {
     return (
         <section className="bg-white dark:bg-gray-900">
@@ -17,51 +34,9 @@ const HowItWorks: FC<HowItWorksProps> = ({}) => {
                     </p>
                 </div>
                 <div className="grid gap-8 lg:grid-cols-3 mx-10 justify-center">
-                    <article className="p-6 bg-white rounded-lg border border-gray-200 w-80 lg:w-96 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                        <div className="flex flex-col justify-center item-center">
-                            <div className="mb-4 w-28 h-28 self-center sm:h-52 sm:w-52">
-                                <Image
-                                    src={"/signin.jpg"}
-                                    alt="sign in"
-                                    width="200"
-                                    height="200"
-                                />
-                            </div>
-                            <h2 className="mb-2 text-sm md:text-lg self-center font-bold tracking-tight text-gray-900 dark:text-white">
-                                <a href="#">Sign Up and get the API Key</a>
-                            </h2>
-                        </div>
-                    </article>
-                    <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md w-80 lg:w-96  dark:bg-gray-800 dark:border-gray-700">
-                        <div className="flex flex-col justify-center item-center">
-                            <div className="mb-4 w-28 h-28 self-center sm:h-52 sm:w-52">
-                                <Image
-                                    src={"/install.jpg"}
-                                    alt="install"
-                                    width="200"
-                                    height="200"
-                                />
-                            </div>
-                            <h2 className="mb-2 text-lg self-center font-bold tracking-tight text-gray-900 dark:text-white">
-                                <a href="#">Install the CLI Tool</a>
-                            </h2>
-                        </div>
-                    </article>
-                    <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md w-80 lg:w-96  dark:bg-gray-800 dark:border-gray-700">
-                        <div className="flex flex-col justify-center item-center">
-                            <div className="mb-4 w-28 h-28 self-center sm:h-52 sm:w-52">
-                                <Image
-                                    src={"/prompt.jpg"}
-                                    alt="prompt"
-                                    width="200"
-                                    height="200"
-                                />
-                            </div>
-                            <h2 className="mb-2 text-lg self-center font-bold tracking-tight text-gray-900 dark:text-white">
-                                <a href="#">Enter the prompt</a>
-                            </h2>
-                        </div>
-                    </article>
+                    {steps.map((step) => (
+                        <Step key={step.key} step={step} />
+                    ))}
                 </div>
             </div>
         </section>
