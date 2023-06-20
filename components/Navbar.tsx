@@ -1,10 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 
-interface NavbarProps {}
-
-const Navbar: FC<NavbarProps> = ({}) => {
+const Navbar: FC = () => {
     return (
         <header>
             <nav className="bg-white/30  border-gray-200 dark:border-gray-600 px-4 md:px-6 py-2.5 dark:bg-gray-800/30 fixed w-full z-10 top-0 backdrop-filter backdrop-blur-lg border-b">

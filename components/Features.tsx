@@ -1,7 +1,6 @@
 import { FC } from "react";
 import SingleFeature from "@/components/SingleFeature";
-
-interface FeaturesProps {}
+import Header from "./Header";
 
 const features = [
     {
@@ -23,15 +22,16 @@ const features = [
         body: "CurlGPT offers a user-friendly command-line interface, making it intuitive and accessible for both beginner and advanced users.",
     },
 ];
-const Features: FC<FeaturesProps> = ({}) => {
+const Features: FC = () => {
     return (
         <section id="features" className="bg-white dark:bg-gray-900">
             <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-                <div className="max-w-screen-lg mb-8 lg:mb-16">
-                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                        CurlGPT comes packed with powerful features
-                    </h2>
-                </div>
+                <Header
+                    title={"CurlGPT comes with powerful features"}
+                    subtitle={
+                        "Experience the Versatility and Efficiency of Our CLI Tool."
+                    }
+                />
                 <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
                     {features.map((feature) => (
                         <SingleFeature key={feature.key} feature={feature} />

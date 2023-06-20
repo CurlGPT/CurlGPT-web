@@ -1,9 +1,7 @@
 import Image from "next/image";
 import { FC } from "react";
 
-interface FooterProps {}
-
-const Footer: FC<FooterProps> = ({}) => {
+const Footer: FC = () => {
     return (
         <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800">
             <div className="mx-auto max-w-screen-xl">
