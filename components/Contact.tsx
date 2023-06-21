@@ -1,9 +1,10 @@
 import { FC } from "react";
-import Header from "./Header";
+
+import Header from "@/components/Header";
 
 const Contact: FC = () => {
     return (
-        <section className="bg-white dark:bg-gray-900">
+        <section id="contact" className="bg-white dark:bg-gray-900">
             <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                 <Header
                     title={"Contact Us"}

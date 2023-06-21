@@ -1,5 +1,6 @@
-import Image from "next/image";
 import { FC } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 const Footer: FC = () => {
     return (
@@ -24,17 +25,20 @@ const Footer: FC = () => {
                         <div>
                             <ul className="sm:flex sm:flex-row text-gray-600 dark:text-gray-400 ml-10">
                                 <li className="mb-4 sm:mr-10">
-                                    <a
+                                    <Link
                                         href="https://github.com/CurlGPT/CurlGPT"
                                         className="hover:underline "
                                     >
                                         Github
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="" className="hover:underline">
+                                    <Link
+                                        href="/documentation"
+                                        className="hover:underline"
+                                    >
                                         Documentation
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
