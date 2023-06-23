@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 
 const Hero: FC = () => {
@@ -15,8 +16,8 @@ const Hero: FC = () => {
                     productivity. Get started now!
                 </p>
                 <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                    <a
-                        href="#"
+                    <Link
+                        href="/"
                         className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
                     >
                         Sign In
@@ -32,9 +33,10 @@ const Hero: FC = () => {
                                 clipRule="evenodd"
                             ></path>
                         </svg>
-                    </a>
-                    <a
-                        href="#"
+                    </Link>
+                    <Link
+                        target="_blank"
+                        href="https://www.npmjs.com/package/curlgpt"
                         className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-950 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
                     >
                         <svg
@@ -52,7 +54,7 @@ const Hero: FC = () => {
                             />
                         </svg>
                         Install
-                    </a>
+                    </Link>
                 </div>
                 <div className="px-4 mx-auto text-center max-w-screen-sm md:max-w-screen-md lg:max-w-screen-xl lg:px-36">
                     <Image

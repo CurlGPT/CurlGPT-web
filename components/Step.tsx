@@ -23,7 +23,7 @@ const Step: FC<StepProps> = ({ step }) => {
                     />
                 </div>
                 <h2 className="mb-2 text-sm md:text-lg self-center font-bold tracking-tight text-gray-950 dark:text-white">
-                    <a href="#">{title}</a>
+                    <p>{title}</p>
                 </h2>
             </div>
         </article>

@@ -8,7 +8,7 @@ const Footer: FC = () => {
             <div className="mx-auto max-w-screen-xl">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
-                        <a href="" className="flex items-center">
+                        <Link href="/" className="flex items-center">
                             <Image
                                 src="https://flowbite.com/docs/images/logo.svg"
                                 className="mr-3 h-8"
@@ -19,7 +19,7 @@ const Footer: FC = () => {
                             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                                 CurlGPT
                             </span>
-                        </a>
+                        </Link>
                     </div>
                     <div>
                         <div>
@@ -48,9 +48,9 @@ const Footer: FC = () => {
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
                         © 2023{" "}
-                        <a href="" className="hover:underline">
+                        <Link href="/" className="hover:underline">
                             CurlGPT™
-                        </a>
+                        </Link>
                         . All Rights Reserved.
                     </span>
                 </div>
