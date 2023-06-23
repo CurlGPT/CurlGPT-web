@@ -1,9 +1,14 @@
 import { FC } from "react";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
 
 import ThemeToggle from "@/components/ThemeToggle";
+import { authOptions } from "@/utils/auth";
+import SignInButton from "./SignInButton";
+import SignOutButton from "./SignOutButton";
 
-const Navbar: FC = () => {
+const Navbar: FC = async () => {
+    const session = await getServerSession(authOptions);
     return (
         <header>
             <nav className="bg-white/30  border-gray-200 dark:border-gray-600 px-4 md:px-6 py-2.5 dark:bg-gray-800/30 fixed w-full z-10 top-0 backdrop-filter backdrop-blur-lg border-b">
@@ -16,12 +21,7 @@ const Navbar: FC = () => {
                     <div className="flex flex-row gap-10">
                         <div className="flex items-center md:order-2">
                             <ThemeToggle />
-                            <Link
-                                href="#"
-                                className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 md:px-5 py-2 md:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
-                            >
-                                Sign In
-                            </Link>
+                            {session ? <SignOutButton /> : <SignInButton />}
                             <button
                                 data-collapse-toggle="mobile-menu-2"
                                 type="button"
