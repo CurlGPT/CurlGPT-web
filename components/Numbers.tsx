@@ -12,7 +12,7 @@ interface NumbersProps {
 const Numbers: FC<NumbersProps> = ({ stat }) => {
     const { bigNumber, context, svg } = stat;
     return (
-        <div className="flex flex-col items-center justify-center p-10 bg-white rounded-sm border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 w-64">
+        <div className="flex flex-col items-center justify-center p-10 bg-gray-100 rounded-sm border border-gray-200 shadow-md dark:bg-gray-900 dark:border-gray-700 w-64">
             <dt className="mb-2 h-12">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

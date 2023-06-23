@@ -24,7 +24,7 @@ const stats = [
 ];
 const Stats: FC = () => {
     return (
-        <section className="bg-white dark:bg-gray-900">
+        <section className="bg-white dark:bg-gray-950">
             <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
                 <Header
                     title={"Transformation by the numbers"}
@@ -32,9 +32,9 @@ const Stats: FC = () => {
                         "Join the thousands of developers and engineers who trust CurlGPT."
                     }
                 />
-                <div className="bg-white dark:bg-gray-900">
+                <div className="bg-white dark:bg-gray-950">
                     <div className="max-w-xs md:max-w-screen-xl px-4 mx-auto text-center">
-                        <dl className="grid max-w-screen-md gap-20 mx-auto text-gray-900 md:grid-cols-3 dark:text-white">
+                        <dl className="grid max-w-screen-md gap-20 mx-auto text-gray-950 md:grid-cols-3 dark:text-white">
                             {stats.map((stat) => (
                                 <Numbers key={stat.key} stat={stat} />
                             ))}
