@@ -16,10 +16,11 @@ const Step: FC<StepProps> = ({ step }) => {
             <div className="flex flex-col justify-center item-center">
                 <div className="mb-4 w-52 self-center h-52 sm:w-52">
                     <Image
+                        className="w-48 h-48"
                         src={imageLink}
                         alt="sign in"
-                        width="200"
-                        height="200"
+                        width="192"
+                        height="192"
                     />
                 </div>
                 <h2 className="mb-2 text-sm md:text-lg self-center font-bold tracking-tight text-gray-950 dark:text-white">

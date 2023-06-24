@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "how2terminal.com",
+                hostname: "lh3.googleusercontent.com",
             },
         ],
     },

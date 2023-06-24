@@ -5,24 +5,24 @@ import Header from "./Header";
 const steps = [
     {
         key: 1,
-        imageLink: "/signin.jpg",
+        imageLink: "/signin.svg",
         title: "Sign In and get the API Key",
     },
     {
         key: 2,
-        imageLink: "/install.jpg",
+        imageLink: "/install.svg",
         title: "Install the CLI Tool",
     },
     {
         key: 3,
-        imageLink: "/prompt.jpg",
+        imageLink: "/prompt.svg",
         title: "Enter the prompt",
     },
 ];
 const HowItWorks: FC = () => {
     return (
-        <section className="bg-white dark:bg-gray-950">
-            <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <section className="bg-white dark:bg-gray-950 pt-32">
+            <div className=" px-4 mx-auto max-w-screen-xl lg:px-6">
                 <Header
                     title={"How it works"}
                     subtitle={

@@ -58,6 +58,7 @@ const Hero: FC = () => {
                 </div>
                 <div className="px-4 mx-auto text-center max-w-screen-sm md:max-w-screen-md lg:max-w-screen-xl lg:px-36">
                     <Image
+                        priority
                         src={"/terminal1.png"}
                         height="791"
                         alt="CurlGPT"

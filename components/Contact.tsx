@@ -4,8 +4,11 @@ import Header from "@/components/Header";
 
 const Contact: FC = () => {
     return (
-        <section id="contact" className="bg-white dark:bg-gray-950">
-            <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+        <section
+            id="contact"
+            className="bg-white dark:bg-gray-950 pt-32 pb-8 lg:pb-16"
+        >
+            <div className="px-4 mx-auto max-w-screen-md">
                 <Header
                     title={"Contact Us"}
                     subtitle={"Got a Question? We're Here to Help!"}

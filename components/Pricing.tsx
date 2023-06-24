@@ -37,8 +37,8 @@ const pricings = [
 
 const Pricing: FC = () => {
     return (
-        <section id="pricing" className="bg-white dark:bg-gray-950">
-            <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <section id="pricing" className="bg-white dark:bg-gray-950 pt-32">
+            <div className="px-4 mx-auto max-w-screen-xl lg:px-6">
                 <Header
                     title={"Flexible Pricing Plans to Suit Your Needs"}
                     subtitle={

@@ -1,7 +1,7 @@
 "use client";
 
 import { ThemeProvider } from "next-themes";
-import type { FC, ReactNode } from "react";
+import { type FC, type ReactNode } from "react";
 
 interface ProvidersProps {
     children: ReactNode;
@@ -9,7 +9,7 @@ interface ProvidersProps {
 
 const Providers: FC<ProvidersProps> = ({ children }) => {
     return (
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             {children}
         </ThemeProvider>
     );
