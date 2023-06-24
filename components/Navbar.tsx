@@ -4,7 +4,6 @@ import { getServerSession } from "next-auth";
 
 import { authOptions } from "@/utils/auth";
 import Nav from "./Nav";
-import Image from "next/image";
 
 const Navbar: FC = async () => {
     const session = await getServerSession(authOptions);

@@ -12,7 +12,6 @@ export default function Home() {
             <Features />
             <Stats />
             <HowItWorks />
-            <Pricing />
             <Contact />
         </main>
     );
