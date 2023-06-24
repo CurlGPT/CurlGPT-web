@@ -13,16 +13,13 @@ const page: FC<pageProps> = async ({}) => {
         return redirect("/");
     }
     return (
-        <div className="flex h-screen w-screen flex-col items-center justify-center">
-            <Link href="/" className="absolute left-4 top-4 md:left-8 md:top-8">
-                <>Back</>
-            </Link>
+        <div className="flex h-screen w-screen flex-col items-center justify-center bg-white dark:bg-gray-950">
             <div className="mx-auto flex w-[350px] flex-col justify-center space-y-6 ">
                 <div className="flex flex-col space-y-2 text-center">
                     <h1 className="text-2xl font-semibold tracking-tight">
-                        Welcome to CurlGPT
+                        Welcome to CurlGPT!
                     </h1>
-                    <p className="px-8 text-center text-sm text-muted-foreground">
+                    <p className="px-8 pb-1 text-center text-sm text-muted-foreground">
                         Sign In with your Google Account
                     </p>
                 </div>
