@@ -34,33 +34,16 @@ export const authOptions: NextAuthOptions = {
     ],
     callbacks: {
         async session({ token, session }) {
-            if (token) {
-                session.user.id = token.id;
-                session.user.name = token.name;
-                session.user.email = token.email;
-                session.user.image = token.picture;
-            }
-
+            session.accessToken = token.accessToken;
+            session.user.id = token.id;
             return session;
         },
-        async jwt({ token, user }) {
-            const dbUser = await db.user.findFirst({
-                where: {
-                    email: token.email,
-                },
-            });
-
-            if (!dbUser) {
-                token.id = user!.id;
-                return token;
+        async jwt({ token, user, account }) {
+            if (account) {
+                token.accessToken = account.id_token;
+                token.id = user.id;
             }
-
-            return {
-                id: dbUser.id,
-                name: dbUser.name,
-                email: dbUser.email,
-                picture: dbUser.image,
-            };
+            return token;
         },
         redirect() {
             return "/";

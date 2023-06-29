@@ -1,5 +1,4 @@
 import Code from "@/components/Code";
-import Header from "@/components/Header";
 import { FC } from "react";
 interface pageProps {}
 
