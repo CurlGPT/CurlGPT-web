@@ -17,8 +17,6 @@ const SignInWithGoogle: FC<SignInWithGoogleProps> = ({}) => {
                 message: "Please try again later",
                 type: "error",
             });
-        } finally {
-            setIsLoading(false);
         }
     };
     return (
