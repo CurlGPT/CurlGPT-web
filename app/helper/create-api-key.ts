@@ -7,7 +7,7 @@ export async function createApiKey() {
     const headers = {
         Authorization: `Bearer ${session?.accessToken}`,
     };
-    const res = await fetch("http://localhost:3000/api/api-key/create", {
+    const res = await fetch(`${process.env.BASEURL}/api/api-key/create`, {
         headers,
     });
     const data = (await res.json()) as CreateApiData;

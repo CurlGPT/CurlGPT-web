@@ -24,7 +24,8 @@ export const authOptions: NextAuthOptions = {
         strategy: "jwt",
     },
     pages: {
-        signIn: "/signin",
+        signIn: "/",
+        signOut: "/",
     },
     providers: [
         GoogleProvider({
@@ -46,7 +47,7 @@ export const authOptions: NextAuthOptions = {
             return token;
         },
         redirect() {
-            return "/";
+            return "/dashboard";
         },
     },
 };
