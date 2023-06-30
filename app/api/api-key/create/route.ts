@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { db } from "@/utils/db";
-import { nanoid } from "nanoid";
+import { customAlphabet } from "nanoid";
 import { headers } from "next/headers";
 
 export async function GET(request: NextRequest) {
@@ -48,10 +48,13 @@ export async function GET(request: NextRequest) {
             { error: null, createdApiKey: existingApiKey },
             { status: 200 }
         );
+    const nanoid = customAlphabet(
+        "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    );
     const createdApiKey = await db.apiKey.create({
         data: {
             userId: currentUser.id,
-            key: "la-" + nanoid(48),
+            key: "la-" + nanoid(30),
         },
     });
 

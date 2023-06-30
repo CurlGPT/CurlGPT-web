@@ -3,11 +3,15 @@ import { authOptions } from "@/utils/auth";
 import { getServerSession } from "next-auth";
 import { FC } from "react";
 import { createApiKey } from "@/app/helper/create-api-key";
+import { redirect } from "next/navigation";
 
 interface pageProps {}
 
 const page: FC<pageProps> = async ({}) => {
     const session = await getServerSession(authOptions);
+    if (!session) {
+        redirect("/");
+    }
     let apiKey;
     try {
         apiKey = await createApiKey();
