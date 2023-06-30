@@ -10,7 +10,7 @@ interface pageProps {}
 const page: FC<pageProps> = async ({}) => {
     const session = await getServerSession(authOptions);
     if (session) {
-        return redirect("/");
+        return redirect("/dashboard");
     }
     return (
         <div className="flex h-screen w-screen flex-col items-center justify-center bg-white dark:bg-gray-950">
