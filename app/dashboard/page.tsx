@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Copy from "@/components/ui/Copy";
 import { authOptions } from "@/utils/auth";
 import { createApiKey } from "@/app/helper/create-api-key";
+import BarChart from "@/components/ui/BarChart";
 
 interface pageProps {}
 
@@ -21,7 +22,10 @@ const page: FC<pageProps> = async ({}) => {
     }
 
     return (
-        <section id="pricing" className="bg-white dark:bg-gray-950 pt-32 pb-12">
+        <section
+            id="pricing"
+            className="bg-white dark:bg-gray-950 pt-32 pb-12 px-16"
+        >
             <Header
                 title={`Welcome, ${session?.user.name || "User"}!`}
                 subtitle=""
@@ -41,6 +45,9 @@ const page: FC<pageProps> = async ({}) => {
                         <Copy text={apiKey || ""} />
                     </div>
                 </div>
+            </div>
+            <div className="py-8 px-4 mx-auto max-w-screen-lg lg:py-16 lg:px-12">
+                <BarChart />
             </div>
         </section>
     );
