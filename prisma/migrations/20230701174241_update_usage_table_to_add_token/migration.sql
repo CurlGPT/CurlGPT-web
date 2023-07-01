@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Usage" ADD COLUMN     "completionToken" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "promptToken" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "totalToken" INTEGER NOT NULL DEFAULT 0;

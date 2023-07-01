@@ -27,13 +27,6 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        await db.usage.create({
-            data: {
-                userId: key.userId,
-                apikey: key.key,
-            },
-        });
-
         try {
             const openaiApiKey = process.env.OPENAI_API_KEY;
 
@@ -51,6 +44,16 @@ export async function POST(request: NextRequest) {
                 ],
             });
             if (command.data.choices[0]?.message != null) {
+                await db.usage.create({
+                    data: {
+                        userId: key.userId,
+                        apikey: key.key,
+                        promptToken: command.data.usage?.prompt_tokens,
+                        completionToken: command.data.usage?.completion_tokens,
+                        totalToken: command.data.usage?.total_tokens,
+                    },
+                });
+                command.data.usage?.completion_tokens;
                 return NextResponse.json(
                     {
                         error: null,

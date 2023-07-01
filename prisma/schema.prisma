@@ -56,6 +56,9 @@ model ApiKey {
 model Usage {
   id String  @id @default(cuid())
   date DateTime @default(now())
+  promptToken Int  @default(0)
+  completionToken Int  @default(0)
+  totalToken Int  @default(0)
   user User @relation(fields: [userId], references: [id])
   userId String
   key ApiKey @relation(fields: [apikey], references: [key])
