@@ -13,7 +13,7 @@ const Navbar: FC = async () => {
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link
                         href="/"
-                        className="flex items-center text-primary-900 dark:text-white"
+                        className="flex items-center text-primary-900 dark:text-white xl:mr-60"
                     >
                         <svg
                             className="mr-1 w-8 h-8"

@@ -12,8 +12,40 @@ interface NavProps {
     session: Session | null;
 }
 
+interface NavbarLinkProps {
+    links: string;
+    text: string;
+    setIsOpen: (value: boolean) => void;
+}
+const NavbarLink: FC<NavbarLinkProps> = ({ links, text, setIsOpen }) => {
+    return (
+        <>
+            <li>
+                <Link
+                    href={links}
+                    className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    onClick={() => setIsOpen(false)}
+                >
+                    {text}
+                </Link>
+            </li>
+        </>
+    );
+};
+
 const Nav: FC<NavProps> = ({ session }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const authenticatedNavbarLinks = [
+        { key: 0, link: "/dashboard", text: "Dashboard" },
+        { key: 1, link: "/documentation", text: "Documentation" },
+    ];
+    const unauthenticatedNavbarLinks = [
+        { key: 0, link: "/documentation", text: "Documentation" },
+        { key: 1, link: "/pricing", text: "Pricing" },
+    ];
+    const navbarLinks = session
+        ? authenticatedNavbarLinks
+        : unauthenticatedNavbarLinks;
     return (
         <>
             <div className="flex md:order-2">
@@ -69,46 +101,20 @@ const Nav: FC<NavProps> = ({ session }) => {
             <div
                 className={` ${
                     isOpen ? "" : "hidden"
-                } items-center justify-between  w-full md:flex md:w-auto md:order-1`}
+                } items-center justify-between w-full lg:ml-96 md:flex md:w-auto md:order-1`}
                 id="navbar-sticky"
             >
                 <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0  dark:border-gray-700">
-                    <li>
-                        <Link
-                            href="/documentation"
-                            className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Documentation
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/#features"
-                            className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Features
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/pricing"
-                            className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Pricing
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/#contact"
-                            className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Contact
-                        </Link>
-                    </li>
+                    {navbarLinks.map(({ key, link, text }) => (
+                        <>
+                            <NavbarLink
+                                key={key}
+                                links={link}
+                                text={text}
+                                setIsOpen={setIsOpen}
+                            />
+                        </>
+                    ))}
                 </ul>
             </div>
         </>
