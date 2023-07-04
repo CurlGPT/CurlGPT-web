@@ -10,3 +10,8 @@ export interface RevokeApiData {
     error: string | ZodIssue[] | null;
     success: boolean;
 }
+
+export interface getUsagePerMonth {
+    error: string | null;
+    usage: Record<string, number>;
+}
