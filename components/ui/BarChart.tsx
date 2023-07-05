@@ -17,6 +17,10 @@ interface BarChartProps {}
 
 const BarChart: FC<BarChartProps> = () => {
     const [currentDate, setCurrentDate] = useState<Date>(new Date());
+    const [currentMonth, setCurrentMonth] = useState(
+        new Date().toLocaleString("default", { month: "long" })
+    );
+
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
     const [formattedData, setFormattedData] = useState<{ x: string; y: any }[]>(
@@ -38,9 +42,6 @@ const BarChart: FC<BarChartProps> = () => {
     }, [currentDate]);
 
     useEffect(() => {
-        console.log("====================================");
-        console.log(startDate, endDate);
-        console.log("====================================");
         const fetchFormattedData = async () => {
             if (startDate && endDate) {
                 const data = await getUsagePerMonth(startDate, endDate);
@@ -90,10 +91,23 @@ const BarChart: FC<BarChartProps> = () => {
         normalized: true,
     };
 
+    const handlePreviousMonth = async () => {
+        const previousMonth = subMonths(currentDate, 1);
+        setCurrentMonth(
+            previousMonth.toLocaleString("default", { month: "long" })
+        );
+        setCurrentDate(previousMonth);
+    };
+    const handleNextMonth = async () => {
+        const nextMonth = addMonths(currentDate, 1);
+        setCurrentMonth(nextMonth.toLocaleString("default", { month: "long" }));
+        setCurrentDate(nextMonth);
+    };
+
     return (
         <>
-            <div className="flex w-32 justify-between items-center">
-                <button onClick={() => {}}>
+            <div className="flex w-40 justify-between items-center">
+                <button onClick={handlePreviousMonth}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -109,9 +123,10 @@ const BarChart: FC<BarChartProps> = () => {
                         />
                     </svg>
                 </button>
-
-                <p className="font-semibold">JUNE</p>
-                <button onClick={() => {}}>
+                <p className="font-semibold">
+                    {currentMonth.toLocaleUpperCase()}
+                </p>
+                <button onClick={handleNextMonth}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

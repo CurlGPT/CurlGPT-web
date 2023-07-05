@@ -3,9 +3,6 @@ import axios from "axios";
 
 export async function getUsagePerMonth(startDate: string, endDate: string) {
     const session = await getSession();
-    console.log("====================================");
-    console.log(startDate, endDate);
-    console.log("====================================");
     const headers = {
         Authorization: `Bearer ${session?.accessToken}`,
     };
