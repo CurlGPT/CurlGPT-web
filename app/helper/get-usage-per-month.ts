@@ -1,23 +1,31 @@
-import { getUsagePerMonth } from "@/types/api/key";
-import { authOptions } from "@/utils/auth";
-import { getServerSession } from "next-auth";
+import { getSession } from "next-auth/react";
+import axios from "axios";
 
-export async function getUsagePerMonth(startDate: string, EndDate: string) {
-    const session = await getServerSession(authOptions);
+export async function getUsagePerMonth(startDate: string, endDate: string) {
+    const session = await getSession();
+    console.log("====================================");
+    console.log(startDate, endDate);
+    console.log("====================================");
     const headers = {
         Authorization: `Bearer ${session?.accessToken}`,
     };
-    const res = await fetch(
-        `${process.env.BASEURL}/api/v1/usage?start_date=${startDate}&end_date=${EndDate}`,
+    const response = await axios.get(
+        `/api/v1/usage?start_date=${startDate}&end_date=${endDate}`,
         {
             headers,
         }
     );
-    const data = (await res.json()) as getUsagePerMonth;
+    const { data } = response;
 
     if (data.error || !data.usage) {
         throw new Error(data.error ?? "Something went wrong");
     }
+    let formattedDate = [];
 
-    return data.usage;
+    const { usage } = data;
+    for (const day in usage) {
+        const usagePerDay = { x: day, y: usage![day] };
+        formattedDate.push(usagePerDay);
+    }
+    return formattedDate;
 }

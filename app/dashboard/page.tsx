@@ -6,7 +6,6 @@ import Copy from "@/components/ui/Copy";
 import { authOptions } from "@/utils/auth";
 import { createApiKey } from "@/app/helper/create-api-key";
 import BarChart from "@/components/ui/BarChart";
-import { getUsagePerMonth } from "../helper/get-usage-per-month";
 
 interface pageProps {}
 
@@ -16,16 +15,9 @@ const page: FC<pageProps> = async ({}) => {
         redirect("/");
     }
     let apiKey;
-    let usage;
-    let formattedDate = [];
 
     try {
         apiKey = await createApiKey();
-        usage = await getUsagePerMonth("2023-07-01", "2023-08-01");
-        for (const day in usage) {
-            const usagePerDay = { x: day, y: usage![day] };
-            formattedDate.push(usagePerDay);
-        }
     } catch (error) {
         console.error(error);
     }
@@ -56,7 +48,7 @@ const page: FC<pageProps> = async ({}) => {
                 </div>
             </div>
             <div className="py-8 px-4 mx-auto max-w-screen-lg lg:py-16 lg:px-12">
-                <BarChart formattedDate={formattedDate} />
+                <BarChart />
             </div>
         </section>
     );
