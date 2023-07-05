@@ -19,7 +19,8 @@ const Copy: FC<CopyProps> = ({ text }) => {
     return (
         <button
             onClick={handleCopyClick}
-            className="text-primary-200  hover:text-primary-100 text-xs"
+            className="text-primary-200 hover:text-primary-100 text-xs"
+            aria-label="copy to clipboard"
         >
             {isCopied ? (
                 <span>Copied!</span>

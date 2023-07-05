@@ -12,6 +12,7 @@ import {
 import { Bar } from "react-chartjs-2";
 import { getUsagePerMonth } from "@/app/helper/get-usage-per-month";
 import { startOfMonth, subMonths, addMonths, format } from "date-fns";
+import UsageCountBar from "./UsageCountBar";
 
 interface BarChartProps {}
 
@@ -116,7 +117,10 @@ const BarChart: FC<BarChartProps> = () => {
     return (
         <>
             <div className="flex w-40 justify-between items-center">
-                <button onClick={handlePreviousMonth}>
+                <button
+                    onClick={handlePreviousMonth}
+                    aria-label="previous month"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -135,7 +139,7 @@ const BarChart: FC<BarChartProps> = () => {
                 <p className="font-semibold">
                     {currentMonth.toLocaleUpperCase()}
                 </p>
-                <button onClick={handleNextMonth}>
+                <button onClick={handleNextMonth} aria-label="next month">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -177,17 +181,7 @@ const BarChart: FC<BarChartProps> = () => {
                 </div>
             )}
             <Bar options={options} data={data} />
-            <div className="flex justify-between mb-1">
-                <span className="text-base font-medium text-blue-700 dark:text-white">
-                    Usage
-                </span>
-                <span className="text-sm font-medium text-blue-700 dark:text-white">
-                    200 / 500
-                </span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                <div className="bg-blue-600 h-2.5 rounded-full w-[40%]"></div>
-            </div>
+            <UsageCountBar />
         </>
     );
 };
