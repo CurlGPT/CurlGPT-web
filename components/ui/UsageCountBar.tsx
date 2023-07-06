@@ -5,7 +5,7 @@ interface UsageCountBarProps {}
 
 const UsageCountBar: FC<UsageCountBarProps> = ({}) => {
     const [count, setCount] = useState(0);
-    const [progressWidth, setProgressWidth] = useState("1%");
+    const [progressWidth, setProgressWidth] = useState(1);
     useEffect(() => {
         const fetchCount = async () => {
             let count;
@@ -16,7 +16,7 @@ const UsageCountBar: FC<UsageCountBarProps> = ({}) => {
             }
             setCount(count);
             const percentage = (count / 500) * 100;
-            setProgressWidth((percentage > 1 ? percentage : 1) + "%");
+            setProgressWidth(percentage > 1 ? percentage : 1);
         };
         fetchCount();
     }, []);
@@ -32,7 +32,8 @@ const UsageCountBar: FC<UsageCountBarProps> = ({}) => {
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                 <div
-                    className={`bg-blue-600 h-2.5 rounded-full w-[${progressWidth}]`}
+                    className={`bg-blue-600 h-2.5 rounded-full`}
+                    style={{ width: `${progressWidth}%` }}
                 ></div>
             </div>
         </>
