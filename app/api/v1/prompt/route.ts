@@ -35,11 +35,11 @@ export async function POST(request: NextRequest) {
             const openai = new OpenAIApi(configuration);
 
             const command = await openai.createChatCompletion({
-                model: "gpt-3.5-turbo",
+                model: "gpt-3.5-turbo-0613",
                 messages: [
                     {
                         role: "user",
-                        content: `Topic: command line tool. Length: 1 line. Task: generate shell command on ${prompt}`,
+                        content: `Topic: command line tool. Length: 1 line. Task: Give only the command without description for ${prompt}`,
                     },
                 ],
             });
