@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
                 {
                     error: "Invalid API Key.",
                 },
-                { status: 401 }
+                { status: 403 }
             );
         }
 
@@ -65,6 +65,7 @@ export async function POST(request: NextRequest) {
         } catch (error: any) {
             console.log("====================================");
             console.log("Error:", error.message);
+            console.log("Error:", error);
             console.log("====================================");
             return NextResponse.json(
                 { error: "Internal Server Error", command: null },
