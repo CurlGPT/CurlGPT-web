@@ -57,7 +57,10 @@ export async function POST(request: NextRequest) {
                 return NextResponse.json(
                     {
                         error: null,
-                        command: command.data.choices[0].message.content,
+                        data: {
+                            command: command.data.choices[0].message.content,
+                            version: process.env.CLI_VERSION,
+                        },
                     },
                     { status: 200 }
                 );
