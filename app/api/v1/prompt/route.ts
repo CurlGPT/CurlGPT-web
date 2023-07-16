@@ -22,6 +22,18 @@ export async function POST(request: NextRequest) {
             return NextResponse.json(
                 {
                     error: "Invalid API Key.",
+                    data: null,
+                },
+                { status: 403 }
+            );
+        }
+
+        const usageCount = await db.usage.count({ where: { apikey } });
+        if (usageCount >= 500) {
+            return NextResponse.json(
+                {
+                    error: "Usage limit exceeded. You have reached the maximum limit of 500 prompts. Please contact the administrator for further assistance",
+                    data: null,
                 },
                 { status: 403 }
             );
@@ -60,6 +72,7 @@ export async function POST(request: NextRequest) {
                         data: {
                             command: command.data.choices[0].message.content,
                             version: process.env.CLI_VERSION,
+                            usageCount: usageCount + 1,
                         },
                     },
                     { status: 200 }
@@ -71,11 +84,11 @@ export async function POST(request: NextRequest) {
             console.log("Error:", error);
             console.log("====================================");
             return NextResponse.json(
-                { error: "Internal Server Error", command: null },
+                { error: "Internal Server Error", data: null },
                 { status: 501 }
             );
         }
     } catch (error: any) {
-        return NextResponse.json({ error: error.message, command: null });
+        return NextResponse.json({ error: error.message, data: null });
     }
 }
