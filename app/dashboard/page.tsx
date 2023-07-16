@@ -15,9 +15,19 @@ const page: FC<pageProps> = async ({}) => {
         redirect("/");
     }
     let apiKey;
+    let obfuscatedApiKey;
+
+    function obfuscateApiKey(apiKey: string): string {
+        const firstThreeChars = apiKey.substring(0, 3);
+        const lastTwoChars = apiKey.substring(apiKey.length - 2);
+        const obfuscatedKey = `${firstThreeChars}****************************${lastTwoChars}`;
+
+        return obfuscatedKey;
+    }
 
     try {
         apiKey = await createApiKey();
+        obfuscatedApiKey = obfuscateApiKey(apiKey);
     } catch (error) {
         console.error(error);
     }
@@ -31,13 +41,13 @@ const page: FC<pageProps> = async ({}) => {
                 title={`Welcome, ${session?.user.name || "User"}!`}
                 subtitle=""
             />
-            <div className="flex justify-center items-center gap-4">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4">
                 <p>Your API Key is</p>
                 <div className="relative w-96">
                     <input
                         type="text"
                         id="apiKey"
-                        value={apiKey}
+                        value={obfuscatedApiKey}
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-950 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Your API Key"
                         disabled
