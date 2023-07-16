@@ -15,7 +15,7 @@ const Code: FC<CodeProps> = ({ code }) => {
                 <Copy text={code} />
             </div>
             <pre
-                className="rounded-b-lg px-3 py-4 text-sm  bg-black text-white"
+                className="rounded-b-lg px-3 py-4 text-sm  bg-black text-white whitespace-pre-wrap"
                 lang="shell"
             >
                 <code>{code}</code>

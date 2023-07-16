@@ -37,7 +37,8 @@ const page: FC<pageProps> = ({}) => {
                         Sign in to CurlGPT to obtain your API key.
                     </li>
                     <li className="text-gray-700 sm:text-lg dark:text-gray-400 my-1">
-                        Set your OpenAI API key using the --set-apiKey option:
+                        Set your CurlGPT&apos;s API key using the --set-apiKey
+                        option:
                     </li>
                     <Code code={"curlgpt --set-apiKey <apiKey>"} />
                     <li className="text-gray-700 sm:text-lg dark:text-gray-400 my-1">
