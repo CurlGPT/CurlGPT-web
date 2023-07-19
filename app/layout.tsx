@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
@@ -22,6 +23,7 @@ export default function RootLayout({
                 <Providers>
                     <Navbar />
                     {children}
+                    <Analytics />
                     <Footer />
                 </Providers>
             </body>
