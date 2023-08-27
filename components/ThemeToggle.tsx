@@ -21,7 +21,7 @@ const ThemeToggle: FC<ThemeToggleProps> = ({}) => {
             {theme !== undefined && theme === "dark" ? (
                 <button
                     aria-label="dark theme"
-                    className="block mr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    className="block mr-4 text-gray-700 border-0 hover:text-primary-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white  dark:hover:text-white  dark:border-gray-700"
                     onClick={() => setTheme("light")}
                 >
                     <svg
@@ -42,7 +42,7 @@ const ThemeToggle: FC<ThemeToggleProps> = ({}) => {
             ) : (
                 <button
                     aria-label="light theme"
-                    className="block mr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    className="block mr-4 text-gray-700 border-0 hover:text-primary-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white  dark:hover:text-white  dark:border-gray-700"
                     onClick={() => setTheme("dark")}
                 >
                     <svg

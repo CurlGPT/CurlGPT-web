@@ -1,19 +1,15 @@
 import { FC } from "react";
 import Link from "next/link";
-import { getServerSession } from "next-auth";
-
-import { authOptions } from "@/utils/auth";
-import Nav from "./Nav";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar: FC = async () => {
-    const session = await getServerSession(authOptions);
     return (
         <header>
             <nav className="bg-white/30 dark:bg-gray-900/30 border-gray-200 dark:border-gray-600 px-4 md:px-6 py-2.5 fixed w-full z-10 top-0  backdrop-filter backdrop-blur-lg border-b">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link
                         href="/"
-                        className="flex items-center text-primary-900 dark:text-white xl:mr-60"
+                        className="flex items-center text-primary-900 dark:text-white "
                     >
                         <svg
                             className="mr-1 w-8 h-8"
@@ -35,7 +31,15 @@ const Navbar: FC = async () => {
                             CurlGPT
                         </p>
                     </Link>
-                    <Nav session={session} />
+                    <div className="flex">
+                        <Link
+                            href={"/documentation"}
+                            className="block py-2 mr-4 pr-4 pl-3 text-gray-700 border-0 hover:text-primary-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white  dark:hover:text-white  dark:border-gray-700"
+                        >
+                            Documentation
+                        </Link>
+                        <ThemeToggle />
+                    </div>
                 </div>
             </nav>
         </header>
