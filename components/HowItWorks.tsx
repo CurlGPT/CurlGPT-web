@@ -21,7 +21,7 @@ const steps = [
 ];
 const HowItWorks: FC = () => {
     return (
-        <section className="bg-white dark:bg-gray-950 pt-32">
+        <section className="bg-white dark:bg-gray-950 p-32">
             <div className=" px-4 mx-auto max-w-screen-xl lg:px-6">
                 <Header
                     title={"How it works"}
