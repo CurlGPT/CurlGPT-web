@@ -1,6 +1,6 @@
 import { FC } from "react";
-import Numbers from "./Numbers";
-import Header from "./Header";
+import Numbers from "./ui/Numbers";
+import Header from "./ui/Header";
 
 const stats = [
     {

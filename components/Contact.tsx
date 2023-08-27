@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Header from "@/components/Header";
+import Header from "@/components/ui/Header";
 
 const Contact: FC = () => {
     return (

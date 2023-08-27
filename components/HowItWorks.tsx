@@ -1,17 +1,17 @@
 import { FC } from "react";
-import Step from "./Step";
-import Header from "./Header";
+import Step from "./ui/Step";
+import Header from "./ui/Header";
 
 const steps = [
     {
         key: 1,
-        imageLink: "/signin.svg",
-        title: "Sign In and get the API Key",
+        imageLink: "/install.svg",
+        title: "Install the CLI Tool",
     },
     {
         key: 2,
-        imageLink: "/install.svg",
-        title: "Install the CLI Tool",
+        imageLink: "/signin.svg",
+        title: "Set your OpenAI's API Key",
     },
     {
         key: 3,

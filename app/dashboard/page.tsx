@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { FC } from "react";
 import { redirect } from "next/navigation";
-import Header from "@/components/Header";
+import Header from "@/components/ui/Header";
 import Copy from "@/components/ui/Copy";
 import { authOptions } from "@/utils/auth";
 import { createApiKey } from "@/app/helper/create-api-key";

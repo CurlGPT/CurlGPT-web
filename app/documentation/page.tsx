@@ -1,4 +1,4 @@
-import Code from "@/components/Code";
+import Code from "@/components/ui/Code";
 import { FC } from "react";
 interface pageProps {}
 
@@ -34,10 +34,19 @@ const page: FC<pageProps> = ({}) => {
                 </p>
                 <ol className="list-decimal list-inside">
                     <li className="text-gray-700 sm:text-lg dark:text-gray-400 my-1">
-                        Sign in to CurlGPT to obtain your API key.
+                        Obtain your{" "}
+                        <a
+                            href="https://platform.openai.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border-b bottom-1 text-blue-800 border-blue-800 dark:border-white dark:text-white "
+                        >
+                            OpenAI&apos;s
+                        </a>{" "}
+                        API key.
                     </li>
                     <li className="text-gray-700 sm:text-lg dark:text-gray-400 my-1">
-                        Set your CurlGPT&apos;s API key using the --set-apiKey
+                        Set your OpenAI&apos;s API key using the --set-apiKey
                         option:
                     </li>
                     <Code code={"curlgpt --set-apiKey <apiKey>"} />

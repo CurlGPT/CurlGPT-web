@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Copy from "./ui/Copy";
+import Copy from "./Copy";
 
 interface CodeProps {
     code: string;

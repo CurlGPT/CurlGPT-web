@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import SingleFeature from "@/components/SingleFeature";
-import Header from "@/components/Header";
+import Header from "@/components/ui/Header";
 
 const features = [
     {

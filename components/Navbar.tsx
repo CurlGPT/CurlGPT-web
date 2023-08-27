@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "./ui/ThemeToggle";
 
 const Navbar: FC = async () => {
     return (
